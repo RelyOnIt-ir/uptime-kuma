@@ -1,0 +1,5 @@
+# apply this file:
+# git add --renormalize .
+* text eol=lf
+# also you should configure git as below:
+# git config --global core.autocrlf false
