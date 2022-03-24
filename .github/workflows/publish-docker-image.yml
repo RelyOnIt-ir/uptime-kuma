@@ -1,0 +1,23 @@
+name: Push Production Docker Image to Private Registry
+
+on:
+  push:
+    branches:
+      - pingbeen
+
+jobs:
+  ci:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: Checkout 🛎
+        uses: actions/checkout@pingbeen
+
+      - name: Docker Production Build & Push Action 🏑
+        uses: mr-smithers-excellent/docker-build-push@v5.6
+        with:
+          image: pingbeen/uptime-kuma
+          registry: registry.relyonit.ir
+          dockerfile: docker/Dockerfile.prod
+          username: ${{ secrets.DOCKER_REGISTRY_USERNAME }}
+          password: ${{ secrets.DOCKER_REGISTRY_PASSWORD }}
