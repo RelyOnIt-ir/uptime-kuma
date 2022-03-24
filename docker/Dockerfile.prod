@@ -14,7 +14,7 @@ RUN apt update && \
     rm -rf /var/lib/apt/lists/*
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
-ENV PINGBEEN_VERSION=0.0.1
+ENV PINGBEEN_VERSION=0.0.2
 
 COPY . .
 RUN npm ci --production && \
