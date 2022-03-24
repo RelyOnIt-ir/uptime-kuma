@@ -16,7 +16,7 @@ jobs:
       - name: Docker Production Build & Push Action 🏑
         uses: mr-smithers-excellent/docker-build-push@v5.6
         with:
-          image: pingbeen/uptime-kuma
+          image: sadeghmohebbi/uptime-kuma
           registry: docker.io
           dockerfile: docker/Dockerfile.prod
           username: ${{ secrets.DOCKERHUB_USERNAME }}
