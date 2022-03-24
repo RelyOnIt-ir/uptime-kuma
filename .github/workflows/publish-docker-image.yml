@@ -11,7 +11,7 @@ jobs:
 
     steps:
       - name: Checkout 🛎
-        uses: actions/checkout@pingbeen
+        uses: actions/checkout@master
 
       - name: Docker Production Build & Push Action 🏑
         uses: mr-smithers-excellent/docker-build-push@v5.6
