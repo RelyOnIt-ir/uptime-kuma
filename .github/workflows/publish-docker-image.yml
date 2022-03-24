@@ -17,6 +17,7 @@ jobs:
         uses: mr-smithers-excellent/docker-build-push@v5.6
         with:
           image: sadeghmohebbi/uptime-kuma
+          tags: ${{ github.ref_name }}-${{ github.sha }}, latest
           registry: docker.io
           dockerfile: docker/Dockerfile.prod
           username: ${{ secrets.DOCKERHUB_USERNAME }}
