@@ -28,5 +28,7 @@ jobs:
       - name: Build and push
         uses: docker/build-push-action@v2
         with:
+          context: .
           push: true
+          file: docker/Dockerfile.prod
           tags: sadeghmohebbi/uptime-kuma:${{ github.ref_name }}-${{ github.sha }}, sadeghmohebbi/uptime-kuma:latest
