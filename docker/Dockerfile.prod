@@ -1,6 +1,8 @@
 # DON'T UPDATE TO node:14-bullseye-slim, see #372.
 # If the image changed, the second stage image should be changed too
 FROM node:16-buster-slim AS build
+LABEL author="Sadegh Mohebbi <mohebbi.sadegh@gmail.com>"
+
 WORKDIR /app
 
 # Install Apprise, add sqlite3 cli for debugging in the future, iputils-ping for ping, util-linux for setpriv
@@ -12,6 +14,7 @@ RUN apt update && \
     rm -rf /var/lib/apt/lists/*
 
 ENV PUPPETEER_SKIP_CHROMIUM_DOWNLOAD=1
+ENV PINGBEEN_VERSION=0.0.1
 
 COPY . .
 RUN npm ci --production && \
