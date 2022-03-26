@@ -20,10 +20,6 @@ COPY . .
 RUN npm ci --production && \
     chmod +x /app/extra/entrypoint.sh
 
-FROM node:16-buster-slim AS release
-
-COPY --from=build /app /app
-
 EXPOSE ${PORT:-3001}
 HEALTHCHECK --interval=60s --timeout=30s --start-period=180s --retries=5 CMD node extra/healthcheck.js
 ENTRYPOINT ["/usr/bin/dumb-init", "--", "extra/entrypoint.sh"]
